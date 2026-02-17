@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<menu-config xmlns="http://jmix.io/schema/flowui/menu">
+
+    <menu id="application" title="msg://com.company.aiwizard/menu.application.title" opened="true">
+        <item view="User.list" title="msg://com.company.aiwizard.view.user/UserListView.title"/>
+        <item view="GeminiSampleView" title="msg://com.company.aiwizard.view.geminisample/geminiSampleView.title"/>
+        <item view="OpenAISampleView" title="msg://com.company.aiwizard.view.openaisample/openAISampleView.title"/>
+        <item view="UnifiedAISampleView"
+              title="msg://com.company.aiwizard.view.unifiedaisample/unifiedAISampleView.title"/>
+        <item view="AIWizardTemplate.list"
+              title="msg://com.company.aiwizard.view.aiwizardtemplate/AIWizardTemplateListView.title"/>
+        <item view="AIWizardHistory.list"
+              title="msg://com.company.aiwizard.view.aiwizardhistory/AIWizardHistoryListView.title"/>
+        <item view="SampleData1.list" title="msg://com.company.aiwizard.view.sampledata1/sampleData1ListView.title"/>
+        <item view="SampleData2.list" title="msg://com.company.aiwizard.view.sampledata2/sampleData2ListView.title"/>
+        <item view="SupportingServicesSampleView"
+              title="msg://com.company.aiwizard.view.supportingservicessample/supportingServicesSampleView.title"/>
+        <item view="PromptTemplateSampleView"
+              title="msg://com.company.aiwizard.view.prompttemplatesample/promptTemplateSampleView.title"/>
+        <item view="PromptTemplateSampleSpringAIView"
+              title="msg://com.company.aiwizard.view.prompttemplatesamplespringai/promptTemplateSampleSpringAIView.title"/>
+    </menu>
+
+</menu-config>

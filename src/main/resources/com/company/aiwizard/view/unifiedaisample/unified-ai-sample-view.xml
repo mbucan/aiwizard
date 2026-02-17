@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<view xmlns="http://jmix.io/schema/flowui/view"
+      title="msg://unifiedAISampleView.title"
+      messagesGroup="com.company.aiwizard.view.unfiedsample"
+      focusComponent="promptField">
+
+    <layout spacing="true" padding="true">
+
+        <!-- Page header -->
+        <h2 text="msg://unifiedAISampleView.header"/>
+
+        <!-- Provider selection -->
+        <formLayout>
+            <comboBox id="providerSelect"
+                      label="msg://unifiedAISampleView.providerSelect.label"
+                      width="20em"
+                      required="true"
+                      clearButtonVisible="true"/>
+        </formLayout>
+
+        <!-- System instruction (optional) -->
+        <textArea id="systemInstructionField"
+                  label="msg://unifiedAISampleView.systemInstructionField.label"
+                  width="100%"
+                  height="6em"/>
+
+        <!-- Prompt input -->
+        <textArea id="promptField"
+                  label="msg://unifiedAISampleView.promptField.label"
+                  width="100%"
+                  height="10em"/>
+
+        <!-- Action buttons -->
+        <hbox spacing="true">
+            <button id="generateBtn"
+                    text="msg://unifiedAISampleView.generateBtn.text"
+                    themeNames="primary"
+                    icon="vaadin:magic"/>
+            <button id="clearBtn"
+                    text="msg://unifiedAISampleView.clearBtn.text"
+                    icon="vaadin:eraser"/>
+            <button id="clearAllBtn"
+                    text="msg://unifiedAISampleView.clearAllBtn.text"
+                    themeNames="tertiary"/>
+        </hbox>
+
+        <!-- Response output -->
+        <textArea id="responseField"
+                  label="msg://unifiedAISampleView.responseField.label"
+                  width="100%"
+                  height="20em"
+                  readOnly="true"/>
+    </layout>
+</view>

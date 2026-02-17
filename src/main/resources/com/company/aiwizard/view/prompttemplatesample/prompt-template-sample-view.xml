@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<view xmlns="http://jmix.io/schema/flowui/view"
+      title="msg://promptTemplateSampleView.title">
+    <layout padding="true" spacing="true">
+        <vbox width="100%" padding="false" spacing="true">
+            <hbox spacing="true">
+                <button id="aiWizardBtn" text="AI Wizard" themeNames="primary"/>
+            </hbox>
+            <textArea id="contextField"
+                      label="Context"
+                      width="100%"
+                      minHeight="10em"
+                      readOnly="true"/>
+            <textArea id="responseField"
+                      label="Response"
+                      width="100%"
+                      minHeight="15em"
+                      readOnly="true"/>
+        </vbox>
+    </layout>
+</view>

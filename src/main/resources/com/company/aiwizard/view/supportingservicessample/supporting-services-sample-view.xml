@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<view xmlns="http://jmix.io/schema/flowui/view"
+      title="msg://supportingServicesSampleView.title">
+    <layout padding="true" spacing="true">
+        <vbox width="100%" padding="false" spacing="true">
+            <hbox spacing="true">
+                <button id="entityListBtn" text="Entity List" themeNames="primary"/>
+                <button id="entityDefinitionsBtn" text="Entity Definitions" themeNames="primary"/>
+                <button id="tableListBtn" text="Table List" themeNames="primary"/>
+                <button id="tableDefinitionsDDLBtn" text="Table Definitions DDL" themeNames="primary"/>
+                <button id="tableDefinitionsMetadataBtn" text="Table Definitions Metadata" themeNames="primary"/>
+            </hbox>
+            <textArea id="responseField"
+                      label="Response"
+                      width="100%"
+                      minHeight="15em"
+                      readOnly="true"/>
+        </vbox>
+    </layout>
+</view>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<view xmlns="http://jmix.io/schema/flowui/view"
+      xmlns:c="http://jmix.io/schema/flowui/jpql-condition"
+      title="msg://sampleData2ListView.title"
+      focusComponent="sampleData2sDataGrid">
+    <data>
+        <collection id="sampleData2sDc"
+                    class="com.company.aiwizard.entity.SampleData2">
+            <fetchPlan extends="_base"/>
+            <loader id="sampleData2sDl" readOnly="true">
+                <query>
+                    <![CDATA[select e from SampleData2 e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <facets>
+        <dataLoadCoordinator auto="true"/>
+        <urlQueryParameters>
+            <genericFilter component="genericFilter"/>
+            <pagination component="pagination"/>
+        </urlQueryParameters>
+    </facets>
+    <actions>
+        <action id="selectAction" type="lookup_select"/>
+        <action id="discardAction" type="lookup_discard"/>
+    </actions>
+    <layout>
+        <genericFilter id="genericFilter"
+                       dataLoader="sampleData2sDl">
+            <properties include=".*"/>
+        </genericFilter>
+        <hbox id="buttonsPanel" classNames="buttons-panel">
+            <startSlot>
+                <button id="createButton" action="sampleData2sDataGrid.createAction"/>
+                <button id="editButton" action="sampleData2sDataGrid.editAction"/>
+                <button id="removeButton" action="sampleData2sDataGrid.removeAction"/>
+                <button id="populateButton" text="Populate with data"/>
+            </startSlot>
+            <endSlot>
+                <simplePagination id="pagination" dataLoader="sampleData2sDl"/>
+            </endSlot>
+        </hbox>
+        <dataGrid id="sampleData2sDataGrid"
+                  width="100%"
+                  minHeight="20em"
+                  dataContainer="sampleData2sDc"
+                  columnReorderingAllowed="true">
+            <actions>
+                <action id="createAction" type="list_create"/>
+                <action id="editAction" type="list_edit"/>
+                <action id="removeAction" type="list_remove"/>
+            </actions>
+            <columns resizable="true">
+                <column property="value3"/>
+                <column property="value4"/>
+            </columns>
+        </dataGrid>
+        <hbox id="lookupActions" visible="false">
+            <button id="selectButton" action="selectAction"/>
+            <button id="discardButton" action="discardAction"/>
+        </hbox>
+    </layout>
+</view>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<view xmlns="http://jmix.io/schema/flowui/view"
+      title="msg://geminiSampleView.title">
+    <layout padding="true" spacing="true">
+        <vbox width="100%" padding="false" spacing="true">
+            <textArea id="promptField"
+                      label="Prompt"
+                      width="100%"
+                      minHeight="10em"/>
+            <hbox spacing="true">
+                <button id="generateBtn" text="Generate" themeNames="primary"/>
+                <button id="clearBtn" text="Clear Prompt"/>
+            </hbox>
+            <textArea id="responseField"
+                      label="Response"
+                      width="100%"
+                      minHeight="15em"
+                      readOnly="true"/>
+        </vbox>
+    </layout>
+</view>
