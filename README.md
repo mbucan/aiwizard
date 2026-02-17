@@ -588,10 +588,11 @@ FROM
     PUBLIC.SAMPLE_DATA1
 ```
 
+```
 Prompt Template: Create new JPQL report data band with Gemini
 Select Entities: SampleData1
 Prompt (User): leave as is
-
+```
 Response:
 ```
 SELECT
@@ -602,12 +603,12 @@ SELECT
 FROM
     SampleData1 sd1
 ```
-
+```
 Prompt Template: Create new SQL report data band with Gemini
 Select Tables: SAMPLE_DATA1 , SAMPLE_DATA2
 Prompt (User): Create new report data band query based on these definitions.
 Combine tables SAMPLE_DATA1 and SAMPLE_DATA2 , match value1 and value3 to form a row, add calculated column value5 that is value2 * value4
-
+```
 Response:
 ```
 SELECT
