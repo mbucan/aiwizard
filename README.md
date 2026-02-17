@@ -572,6 +572,7 @@ Implemented method name is stripCodeBlockFormatting().
 
 Let's try again.
 
+Prompt:
 ```
 Prompt Template: Create new SQL report data band with Gemini
 Select Tables: SAMPLE_DATA11
@@ -587,7 +588,7 @@ SELECT
 FROM
     PUBLIC.SAMPLE_DATA1
 ```
-
+Prompt:
 ```
 Prompt Template: Create new JPQL report data band with Gemini
 Select Entities: SampleData1
@@ -603,6 +604,7 @@ SELECT
 FROM
     SampleData1 sd1
 ```
+Prompt:
 ```
 Prompt Template: Create new SQL report data band with Gemini
 Select Tables: SAMPLE_DATA1 , SAMPLE_DATA2
