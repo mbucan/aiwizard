@@ -1,3 +1,59 @@
+# Jmix Reports AI Wizard
+
+<!-- TOC -->
+* [Jmix Reports AI Wizard](#jmix-reports-ai-wizard)
+  * [About](#about)
+  * [Introduction](#introduction)
+  * [Security](#security)
+    * [Data security](#data-security)
+    * [Operational security](#operational-security)
+    * [User security](#user-security)
+    * [Legal security](#legal-security)
+  * [Example application](#example-application)
+    * [Create the Jmix AI Wizard Example application](#create-the-jmix-ai-wizard-example-application)
+    * [Connect to Google Gemini LLM](#connect-to-google-gemini-llm)
+      * [Obtain Gemini API key](#obtain-gemini-api-key)
+      * [Modify build.gradle](#modify-buildgradle)
+      * [Modify application.properties](#modify-applicationproperties)
+      * [Implement the Gemini service](#implement-the-gemini-service)
+      * [View for Gemini service](#view-for-gemini-service)
+      * [Gemini service prompt testing](#gemini-service-prompt-testing)
+    * [Connect to OpenAI LLM](#connect-to-openai-llm)
+      * [Obtain OpenAI API key](#obtain-openai-api-key)
+      * [Modify build.gradle](#modify-buildgradle-1)
+      * [Modify application.properties](#modify-applicationproperties-1)
+      * [Implement the OpenAI service](#implement-the-openai-service)
+      * [View for OpenAI service](#view-for-openai-service)
+      * [OpenAI service prompt testing](#openai-service-prompt-testing)
+    * [Using Spring AI](#using-spring-ai)
+      * [Modify build.gradle](#modify-buildgradle-2)
+      * [Modify application.properties](#modify-applicationproperties-2)
+      * [Configuration for ChatClient](#configuration-for-chatclient)
+      * [AIWizardConnection enum](#aiwizardconnection-enum)
+      * [Implement the Unified AI service](#implement-the-unified-ai-service)
+      * [View for Unified AI service](#view-for-unified-ai-service)
+      * [Unified AI service prompt testing](#unified-ai-service-prompt-testing)
+    * [Improvements to the Example application](#improvements-to-the-example-application)
+    * [Implementing AI Wizard Prompt Template](#implementing-ai-wizard-prompt-template)
+      * [AIWizardOperation enum](#aiwizardoperation-enum)
+      * [Dataset type enum](#dataset-type-enum)
+      * [AIWizardTemplate entity and views](#aiwizardtemplate-entity-and-views)
+      * [Creating templates](#creating-templates)
+    * [AI Wizard History](#ai-wizard-history)
+      * [AIWizardHistory entity and views](#aiwizardhistory-entity-and-views)
+    * [Sample data](#sample-data)
+    * [AI Wizard Supporting Services](#ai-wizard-supporting-services)
+      * [Entities list service](#entities-list-service)
+      * [Entity definition service](#entity-definition-service)
+      * [Database tables list service](#database-tables-list-service)
+      * [Database table DDL service](#database-table-ddl-service)
+      * [Supporting Services test](#supporting-services-test)
+    * [AI Wizard Prompt Template testing](#ai-wizard-prompt-template-testing)
+    * [Modifying Reports add-on](#modifying-reports-add-on)
+      * [Creating sample report](#creating-sample-report)
+      * [Overriding ReportDetailView](#overriding-reportdetailview)
+    * [Conclusion](#conclusion)
+<!-- TOC -->
 
 ## About
 
@@ -760,6 +816,7 @@ Looking at this example implementation, I think I would approach some things dif
 There is, however, a trade-off between more info in the template fields, or template specific contextPrefix. There are disciplines called Prompt Engineering and Context Engineering that are concerned with such issues. AI Wizard button click event handler implemented as service ... other improvements and features come to mind.
 
 My friend Yago the Jmix parrot is telling me that Jmix team is busy working on more AI support features for the Jmix, so looking forward to that.
+
 
 
 
