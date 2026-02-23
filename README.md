@@ -52,7 +52,7 @@
     * [Modifying Reports add-on](#modifying-reports-add-on)
       * [Creating sample report](#creating-sample-report)
       * [Overriding ReportDetailView](#overriding-reportdetailview)
-    * [Conclusion](#conclusion)
+  * [Conclusion](#conclusion)
 <!-- TOC -->
 
 ## About
