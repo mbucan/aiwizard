@@ -807,7 +807,7 @@ Reports - Show tables -  Select Sample Report 1
 
 Run
 
-### Conclusion
+## Conclusion
 
 Claude Opus 4.5/6 and Sonnet 4.5 were used to generate and document the source code. I would prompt Claude, then used its responses for the coding tasks. Generated code needed modifications from my side. 
 
