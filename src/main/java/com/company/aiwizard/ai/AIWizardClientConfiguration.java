@@ -12,8 +12,7 @@ import org.springframework.context.annotation.Configuration;
 /**
  * Configuration for AI provider ChatClient beans.
  * Each provider is conditionally created only if its API key is configured.
- *
- * Required configuration in application.properties:
+  * Required configuration in application.properties:
  * - spring.ai.openai.api-key: OpenAI API key (for OpenAI provider)
  * - spring.ai.gemini.api-key: Google AI Studio API key (for Gemini provider)
  * - spring.ai.gemini.model: (Optional) Gemini model name, defaults to gemini-2.0-flash
@@ -38,7 +37,6 @@ public class AIWizardClientConfiguration {
      * Google Gemini ChatClient via OpenAI-compatible API.
      * Uses Google AI Studio API key (not Vertex AI).
      * Get your key at: https://aistudio.google.com/apikey
-     *
      * This works because Google provides an OpenAI-compatible endpoint,
      * allowing us to reuse the OpenAI client infrastructure.
      *
