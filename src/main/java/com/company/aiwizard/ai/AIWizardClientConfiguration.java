@@ -63,7 +63,7 @@ public class AIWizardClientConfiguration {
                 .openAiApi(geminiApi)
                 .defaultOptions(OpenAiChatOptions.builder()
                         .model(model)
-                        .temperature(0.7)
+                        .temperature(0.1)
                         .build())
                 .build();
 

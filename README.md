@@ -279,11 +279,25 @@ We will again leave the Gemini and OpenAI API parameters, which would otherwise 
 #Spring AI configuration
 spring.ai.openai.api-key=<your-key-here>
 spring.ai.openai.chat.options.model=gpt-4o-mini
-spring.ai.openai.chat.options.temperature=0.7
+spring.ai.openai.chat.options.temperature=0.1
 
 spring.ai.gemini.api-key=<your-key-here>
 spring.ai.gemini.model=gemini-2.5-flash-lite
 ```
+
+Temperature is very important parameter. When processing the prompts, a LLM pick next tokens based on the probability score:
+
+Temperature = 1 is the baseline — probabilities are used as-is, as the model learned them during training.
+
+Temperature < 1 (e.g., 0.2) compresses the distribution, making the high-probability tokens even more dominant. The model becomes more focused and conservative. At temperature = 0, it's fully deterministic — always picks the top token.
+
+Temperature > 1 (e.g., 1.5) flattens the distribution, giving lower-probability tokens a better chance of being selected. The model becomes more adventurous and unpredictable. At very high temperatures the output becomes essentially random and incoherent.
+
+Temperature recommendations:
+
+- For code, SQL, data extraction — low temperature (0 to 0.3) gives consistent, predictable output
+- For general conversation and Q&A — moderate temperature (0.5 to 1.0) works well
+- For creative writing, brainstorming — higher temperature (1.0+) produces more varied and surprising results
 
 #### Configuration for ChatClient
 We need to provide @Configuration class for the org.springframework.ai.chat.client.ChatClient usage, we will put it here
