@@ -214,13 +214,13 @@ With Jmix one can use also REST without Gemini SDK, but we will use the SDK here
 #### Modify application.properties
 Add
 ```
-# Google Gemini API params
+# OpenAI API params
 openai.api-key=<your-key-here>
 openai.model=gemini-2.5-flash-lite
 ```
 
 #### Implement the OpenAI service
-Service same as before, but now for OpenAI service:
+Service same as before, but now for the OpenAI service:
 
 com.company.aiwizard.service.OpenAIService
 
@@ -228,7 +228,7 @@ Both APIs are easy to use and the services look similar.
 
 #### View for OpenAI service
 
-Let's make  OpenAISampleView with the same text areas for prompt, response , and buttons:
+Let's make  OpenAISampleView with the same text areas for prompt, response and buttons:
 
 ```
 OpenAISampleView
