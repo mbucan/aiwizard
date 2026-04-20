@@ -29,7 +29,7 @@ public class AIWizardEntityListService {
 
     /**
      * Returns a sorted list of all JPA entity names in the application.
-     * Entity names are in Jmix format (e.g., "SampleData1", "User").
+     * Entity names are in Jmix format (e.g., "CustomerOrder", "User").
      *
      * @return alphabetically sorted list of entity names
      */

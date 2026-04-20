@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <view xmlns="http://jmix.io/schema/flowui/view"
-      xmlns:c="http://jmix.io/schema/flowui/jpql-condition"
-      title="msg://sampleData2ListView.title"
-      focusComponent="sampleData2sDataGrid">
+      title="msg://customerOrderListView.title"
+      focusComponent="customerOrdersDataGrid">
     <data>
-        <collection id="sampleData2sDc"
-                    class="com.company.aiwizard.entity.SampleData2">
-            <fetchPlan extends="_base"/>
-            <loader id="sampleData2sDl" readOnly="true">
+        <collection id="customerOrdersDc"
+                    class="com.company.aiwizard.entity.CustomerOrder">
+            <fetchPlan extends="_base">
+                <property name="customer" fetchPlan="_base"/>
+                <property name="product" fetchPlan="_base"/>
+            </fetchPlan>
+            <loader id="customerOrdersDl" readOnly="true">
                 <query>
-                    <![CDATA[select e from SampleData2 e]]>
+                    <![CDATA[select e from CustomerOrder e order by e.orderDate desc]]>
                 </query>
             </loader>
         </collection>
@@ -27,24 +29,24 @@
     </actions>
     <layout>
         <genericFilter id="genericFilter"
-                       dataLoader="sampleData2sDl">
+                       dataLoader="customerOrdersDl">
             <properties include=".*"/>
         </genericFilter>
         <hbox id="buttonsPanel" classNames="buttons-panel">
             <startSlot>
-                <button id="createButton" action="sampleData2sDataGrid.createAction"/>
-                <button id="editButton" action="sampleData2sDataGrid.editAction"/>
-                <button id="removeButton" action="sampleData2sDataGrid.removeAction"/>
+                <button id="createButton" action="customerOrdersDataGrid.createAction"/>
+                <button id="editButton" action="customerOrdersDataGrid.editAction"/>
+                <button id="removeButton" action="customerOrdersDataGrid.removeAction"/>
                 <button id="populateButton" text="Populate with data"/>
             </startSlot>
             <endSlot>
-                <simplePagination id="pagination" dataLoader="sampleData2sDl"/>
+                <simplePagination id="pagination" dataLoader="customerOrdersDl"/>
             </endSlot>
         </hbox>
-        <dataGrid id="sampleData2sDataGrid"
+        <dataGrid id="customerOrdersDataGrid"
                   width="100%"
                   minHeight="20em"
-                  dataContainer="sampleData2sDc"
+                  dataContainer="customerOrdersDc"
                   columnReorderingAllowed="true">
             <actions>
                 <action id="createAction" type="list_create"/>
@@ -52,8 +54,12 @@
                 <action id="removeAction" type="list_remove"/>
             </actions>
             <columns resizable="true">
-                <column property="value3"/>
-                <column property="value4"/>
+                <column property="orderNumber"/>
+                <column property="customer"/>
+                <column property="product"/>
+                <column property="quantity"/>
+                <column property="totalAmount"/>
+                <column property="orderDate"/>
             </columns>
         </dataGrid>
         <hbox id="lookupActions" visible="false">

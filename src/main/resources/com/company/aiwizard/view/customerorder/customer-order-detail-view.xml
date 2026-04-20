@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<view xmlns="http://jmix.io/schema/flowui/view"
+      title="msg://customerOrderDetailView.title"
+      focusComponent="form">
+    <data>
+        <instance id="customerOrderDc"
+                  class="com.company.aiwizard.entity.CustomerOrder">
+            <fetchPlan extends="_base">
+                <property name="customer" fetchPlan="_base"/>
+                <property name="product" fetchPlan="_base"/>
+            </fetchPlan>
+            <loader id="customerOrderDl"/>
+        </instance>
+        <collection id="customersDc" class="com.company.aiwizard.entity.Customer">
+            <fetchPlan extends="_base"/>
+            <loader id="customersDl" readOnly="true">
+                <query>
+                    <![CDATA[select e from Customer e order by e.name]]>
+                </query>
+            </loader>
+        </collection>
+        <collection id="productsDc" class="com.company.aiwizard.entity.Product">
+            <fetchPlan extends="_base"/>
+            <loader id="productsDl" readOnly="true">
+                <query>
+                    <![CDATA[select e from Product e order by e.name]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <facets>
+        <dataLoadCoordinator auto="true"/>
+    </facets>
+    <actions>
+        <action id="saveCloseAction" type="detail_saveClose"/>
+        <action id="closeAction" type="detail_close"/>
+    </actions>
+    <layout>
+        <formLayout id="form" dataContainer="customerOrderDc">
+            <responsiveSteps>
+                <responsiveStep minWidth="0" columns="1"/>
+                <responsiveStep minWidth="40em" columns="2"/>
+            </responsiveSteps>
+            <textField id="orderNumberField" property="orderNumber"/>
+            <entityComboBox id="customerField" property="customer" itemsContainer="customersDc"/>
+            <entityComboBox id="productField" property="product" itemsContainer="productsDc"/>
+            <textField id="quantityField" property="quantity"/>
+            <textField id="totalAmountField" property="totalAmount"/>
+            <datePicker id="orderDateField" property="orderDate"/>
+        </formLayout>
+        <hbox id="detailActions">
+            <button id="saveAndCloseButton" action="saveCloseAction"/>
+            <button id="closeButton" action="closeAction"/>
+        </hbox>
+    </layout>
+</view>

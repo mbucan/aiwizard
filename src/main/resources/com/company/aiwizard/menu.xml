@@ -11,8 +11,9 @@
               title="msg://com.company.aiwizard.view.aiwizardtemplate/AIWizardTemplateListView.title"/>
         <item view="AIWizardHistory.list"
               title="msg://com.company.aiwizard.view.aiwizardhistory/AIWizardHistoryListView.title"/>
-        <item view="SampleData1.list" title="msg://com.company.aiwizard.view.sampledata1/sampleData1ListView.title"/>
-        <item view="SampleData2.list" title="msg://com.company.aiwizard.view.sampledata2/sampleData2ListView.title"/>
+        <item view="Customer.list" title="msg://com.company.aiwizard.view.customer/customerListView.title"/>
+        <item view="Product.list" title="msg://com.company.aiwizard.view.product/productListView.title"/>
+        <item view="CustomerOrder.list" title="msg://com.company.aiwizard.view.customerorder/customerOrderListView.title"/>
         <item view="SupportingServicesSampleView"
               title="msg://com.company.aiwizard.view.supportingservicessample/supportingServicesSampleView.title"/>
         <item view="PromptTemplateSampleView"
