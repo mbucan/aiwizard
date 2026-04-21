@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <view xmlns="http://jmix.io/schema/flowui/view"
-      title="msg://sampleData2DetailView.title"
+      title="msg://customerDetailView.title"
       focusComponent="form">
     <data>
-        <instance id="sampleData2Dc"
-                  class="com.company.aiwizard.entity.SampleData2">
+        <instance id="customerDc"
+                  class="com.company.aiwizard.entity.Customer">
             <fetchPlan extends="_base"/>
-            <loader id="sampleData2Dl"/>
+            <loader id="customerDl"/>
         </instance>
     </data>
     <facets>
@@ -17,13 +17,14 @@
         <action id="closeAction" type="detail_close"/>
     </actions>
     <layout>
-        <formLayout id="form" dataContainer="sampleData2Dc">
+        <formLayout id="form" dataContainer="customerDc">
             <responsiveSteps>
                 <responsiveStep minWidth="0" columns="1"/>
                 <responsiveStep minWidth="40em" columns="2"/>
             </responsiveSteps>
-            <textField id="value3Field" property="value3"/>
-            <textField id="value4Field" property="value4"/>
+            <textField id="nameField" property="name"/>
+            <textField id="emailField" property="email"/>
+            <textField id="cityField" property="city"/>
         </formLayout>
         <hbox id="detailActions">
             <button id="saveAndCloseButton" action="saveCloseAction"/>

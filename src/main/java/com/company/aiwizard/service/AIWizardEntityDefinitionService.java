@@ -39,7 +39,7 @@ public class AIWizardEntityDefinitionService {
      * Returns complete entity definition with all metadata as a structured object.
      * Includes table mapping, properties, relationships, annotations, and inheritance info.
      *
-     * @param entityName Jmix entity name (e.g., "User", "SampleData1")
+     * @param entityName Jmix entity name (e.g., "User", "CustomerOrder")
      * @return EntityDefinition record containing all metadata
      * @throws IllegalArgumentException if entity is not found
      */

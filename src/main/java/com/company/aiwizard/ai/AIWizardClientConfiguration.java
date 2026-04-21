@@ -11,38 +11,43 @@ import org.springframework.context.annotation.Configuration;
 
 /**
  * Configuration for AI provider ChatClient beans.
- * Each provider is conditionally created only if its API key is configured.
-  * Required configuration in application.properties:
+ * Each provider is built manually and conditionally created only if its API key is configured.
+ * Spring AI auto-configuration is excluded via application.properties so a missing
+ * API key does not break application startup.
+ * Required configuration:
  * - spring.ai.openai.api-key: OpenAI API key (for OpenAI provider)
  * - spring.ai.gemini.api-key: Google AI Studio API key (for Gemini provider)
- * - spring.ai.gemini.model: (Optional) Gemini model name, defaults to gemini-2.0-flash
  */
 @Configuration
 public class AIWizardClientConfiguration {
 
-    /**
-     * OpenAI ChatClient - created if spring.ai.openai.api-key is set.
-     * Uses auto-configured OpenAiChatModel from Spring AI starter.
-     *
-     * @param openAiChatModel auto-configured model from spring-ai-starter-model-openai
-     * @return ChatClient configured for OpenAI
-     */
     @Bean("openAiChatClient")
     @ConditionalOnProperty(name = "spring.ai.openai.api-key")
-    public ChatClient openAiChatClient(OpenAiChatModel openAiChatModel) {
-        return ChatClient.builder(openAiChatModel).build();
+    public ChatClient openAiChatClient(
+            @Value("${spring.ai.openai.api-key}") String apiKey,
+            @Value("${spring.ai.openai.chat.options.model:gpt-4o-mini}") String model,
+            @Value("${spring.ai.openai.chat.options.temperature:0.1}") Double temperature) {
+
+        OpenAiApi openAiApi = OpenAiApi.builder()
+                .apiKey(apiKey)
+                .build();
+
+        OpenAiChatModel openAiModel = OpenAiChatModel.builder()
+                .openAiApi(openAiApi)
+                .defaultOptions(OpenAiChatOptions.builder()
+                        .model(model)
+                        .temperature(temperature)
+                        .build())
+                .build();
+
+        return ChatClient.builder(openAiModel).build();
     }
 
     /**
      * Google Gemini ChatClient via OpenAI-compatible API.
-     * Uses Google AI Studio API key (not Vertex AI).
+     * Google AI Studio exposes an OpenAI-compatible endpoint, so the same
+     * OpenAI client libraries work by swapping the base URL.
      * Get your key at: https://aistudio.google.com/apikey
-     * This works because Google provides an OpenAI-compatible endpoint,
-     * allowing us to reuse the OpenAI client infrastructure.
-     *
-     * @param apiKey Gemini API key from spring.ai.gemini.api-key
-     * @param model  Gemini model name, defaults to gemini-2.0-flash
-     * @return ChatClient configured for Google Gemini
      */
     @Bean("geminiChatClient")
     @ConditionalOnProperty(name = "spring.ai.gemini.api-key")
@@ -50,13 +55,11 @@ public class AIWizardClientConfiguration {
             @Value("${spring.ai.gemini.api-key}") String apiKey,
             @Value("${spring.ai.gemini.model:gemini-2.0-flash}") String model) {
 
-        // Configure OpenAI API to point to Gemini's OpenAI-compatible endpoint
         OpenAiApi geminiApi = OpenAiApi.builder()
                 .apiKey(apiKey)
                 .baseUrl("https://generativelanguage.googleapis.com/v1beta/openai")
                 .build();
 
-        // Build chat model with Gemini-specific options
         OpenAiChatModel geminiModel = OpenAiChatModel.builder()
                 .openAiApi(geminiApi)
                 .defaultOptions(OpenAiChatOptions.builder()

@@ -11,38 +11,30 @@ import jakarta.persistence.Table;
 import java.util.UUID;
 
 @JmixEntity
-@Table(name = "SAMPLE_DATA1")
+@Table(name = "CUSTOMER")
 @Entity
-public class SampleData1 {
+public class Customer {
     @JmixGeneratedValue
     @Column(name = "ID", nullable = false)
     @Id
     private UUID id;
 
     @InstanceName
-    @Column(name = "NAME")
+    @Column(name = "NAME", nullable = false)
     private String name;
 
-    @Column(name = "VALUE1")
-    private Integer value1;
+    @Column(name = "EMAIL")
+    private String email;
 
-    @Column(name = "VALUE2")
-    private Double value2;
+    @Column(name = "CITY")
+    private String city;
 
-    public Double getValue2() {
-        return value2;
+    public UUID getId() {
+        return id;
     }
 
-    public void setValue2(Double value2) {
-        this.value2 = value2;
-    }
-
-    public Integer getValue1() {
-        return value1;
-    }
-
-    public void setValue1(Integer value1) {
-        this.value1 = value1;
+    public void setId(UUID id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -53,12 +45,19 @@ public class SampleData1 {
         this.name = name;
     }
 
-    public UUID getId() {
-        return id;
+    public String getEmail() {
+        return email;
     }
 
-    public void setId(UUID id) {
-        this.id = id;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
 }
